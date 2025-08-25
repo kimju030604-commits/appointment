@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>កិច្ចប្រជុំក្រុមលក់</title>
+    <!-- Use Tailwind CSS for modern styling and responsiveness -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Poppins font for a clean, professional look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        @media (min-width: 768px) {
+            .container {
+                max-width: 600px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-blue-500 flex items-center justify-center min-h-screen p-4 sm:p-6">
+
+    <div id="app-container" class="container bg-white rounded-xl shadow-lg p-6 sm:p-8 space-y-6">
+        <!-- Title and description -->
+        <div class="text-center">
+            <h1 class="text-3xl font-bold text-gray-800">កម្មវត្ថុ៖ កិច្ចប្រជុំផ្នែកលក់</h1>
+            <p class="mt-2 text-gray-500">
+                កិច្ចប្រជុំថ្ងៃទី ៣០, ៣១ ខែសីហា និង ថ្ងៃទី ៤ ខែតុលា
+
+សូមជម្រាបជូនដំណឹងដល់ ផ្នែកលក់ THC ទាំងអស់ថាក្រុមហ៊ុន អីអេចស៊ី យើងនិងមានកិច្ចប្រជុំមួយ។
+ខាងក្រោមនេះគឺជាកាលវិភាគនៃកិច្ចប្រជុំដែលត្រូវបានរៀបចំឡើងសម្រាប់សមាជិកក្រុមទាំងអស់។ 
+
+សូមកំណត់សំគាល់កាលវិភាគនៃកិច្ចប្រជុំ ទៅតាមកាលបរិច្ឆេទនិងម៉ោងដូចខាងក្រោម៖
+            </p>
+        </div>
+
+        <!-- Booking Schedule Display -->
+        <div id="booking-schedule" class="space-y-4">
+            <!-- Time Slot Display -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700">កាលបរិច្ឆេទ និងម៉ោង</label>
+                <div id="time-slots" class="mt-2 grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    <!-- Time slots will be populated here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const timeSlotsContainer = document.getElementById('time-slots');
+
+            // The list of available appointment slots based on the provided text
+            const availableSlots = [
+                'ថ្ងៃទី ៣០ សីហា, ៩:០០ ព្រឹក - ១១:៣០ ព្រឹក',
+                'ថ្ងៃទី ៣០ សីហា, ២:០០ រសៀល - ៤:០០ រសៀល',
+                'ថ្ងៃទី ៣១ សីហា, ៩:០០ ព្រឹក - ១១:៣០ ព្រឹក',
+                'ថ្ងៃទី ៣១ សីហា, ២:០០ រសៀល - ៤:០០ រសៀល',
+                'ថ្ងៃទី ០៤ តុលា, ៩:០០ ព្រឹក - ១១:៣០ ព្រឹក',
+                'ថ្ងៃទី ០៤ តុលា, ២:០០ រសៀល - ៤:០០ រសៀល'
+            ];
+            
+            // Function to populate time slots in the UI
+            function populateTimeSlots() {
+                availableSlots.forEach(slot => {
+                    const div = document.createElement('div');
+                    div.textContent = slot;
+                    div.classList.add(
+                        'bg-gray-200', 'text-gray-700', 'font-medium', 'rounded-md',
+                        'p-2', 'sm:p-3', 'text-sm'
+                    );
+                    timeSlotsContainer.appendChild(div);
+                });
+            }
+
+            // Initial call to populate time slots
+            populateTimeSlots();
+        });
+    </script>
+
+</body>
+</html>
